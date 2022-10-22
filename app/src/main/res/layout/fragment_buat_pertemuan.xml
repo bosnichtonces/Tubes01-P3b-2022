@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:text="Buat Pertemuan"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/judul"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/tv_nama"
+                android:layout_width="55sp"
+                android:layout_height="wrap_content"
+                android:text="Nama " />
+
+            <EditText
+                android:id="@+id/ed_new_nama"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_marginBottom="10sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll1"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/tv_dokter"
+                android:layout_width="55sp"
+                android:layout_height="wrap_content"
+                android:text="Dokter " />
+            <!-- nanti diubah jadi input multiple choise-->
+            <EditText
+                android:id="@+id/ed_new_dokter"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_marginBottom="10sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll2"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/tv_keluhan"
+                android:layout_width="55sp"
+                android:layout_height="wrap_content"
+                android:text="Keluhan " />
+
+            <EditText
+                android:id="@+id/ed_new_keluhan"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_marginBottom="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll4"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll3"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/tv_tanggal"
+                android:layout_width="55sp"
+                android:layout_height="wrap_content"
+                android:text="Tanggal " />
+            <!-- nanti diubah jadi input multiple choise-->
+            <EditText
+                android:id="@+id/ed_new_tanggal"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_marginBottom="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll5"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll4"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/tv_waktu"
+                android:layout_width="55sp"
+                android:layout_height="wrap_content"
+                android:text="Waktu " />
+            <!-- nanti diubah jadi input multiple choise-->
+            <EditText
+                android:id="@+id/ed_new_waktu"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_marginBottom="10sp" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_simpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll5"
+            android:layout_centerHorizontal="true"
+            android:text="Simpan" />
+
+
+    </RelativeLayout>
+</ScrollView>

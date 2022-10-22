@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Home"
+            android:padding="25dp"
+            android:id="@+id/home"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pertemuan"
+            android:id="@+id/pertemuan"
+            android:padding="25dp"
+            android:layout_below="@id/home"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Dokter"
+            android:id="@+id/dokter"
+            android:padding="25dp"
+            android:layout_below="@id/pertemuan"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Exit"
+            android:id="@+id/exit"
+            android:padding="25dp"
+            android:layout_below="@id/dokter"/>
+    </RelativeLayout>
+
+</FrameLayout>
