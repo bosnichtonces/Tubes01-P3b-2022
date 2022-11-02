@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
     BuatPertemuanFragment buatPertemuanFragment;
     DokterFragment dokterFragment;
     MainFragment mainFragment;
+    PertemuanFragment pertemuanFragment;
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         this.buatPertemuanFragment = BuatPertemuanFragment.newInstance();
         this.dokterFragment = DokterFragment.newInstance();
         this.mainFragment = MainFragment.newInstance();
+        this.pertemuanFragment = PertemuanFragment.newInstance();
 
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
         fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -66,11 +68,18 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         }else if(page == 3){
             fragmentTransaction.replace(R.id.fragment_container,this.buatPertemuanFragment)
                     .addToBackStack(null);
+        }else if(page == 4){
+            fragmentTransaction.replace(R.id.fragment_container,this.pertemuanFragment)
+                    .addToBackStack(null);
         }
+        this.fragmentTransaction.commit();
+        binding.drawerLayout.closeDrawers();
     }
 
     @Override
     public void closeApplication() {
-
+        this.moveTaskToBack(true);
+        this.finish();
+        binding.drawerLayout.closeDrawers();
     }
 }

@@ -1,8 +1,13 @@
 package com.example.myapplication;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.myapplication.model.Dokter;
+
+import java.sql.Timestamp;
 
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -17,12 +22,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // column tables
     private static final String KEY_ID = "id";
-    private static final String KEY_NAMA_PASIEN = "bahan";
-    private static final String KEY_NAMA_DOKTER = "nama dokter";
-    private static final String KEY_SPESIALIS = "spesialis";
-    private static final String KEY_KELUHAN = "keluhan";
-    private static final String KEY_TANGGAL = "tanggal";
-    private static final String KEY_WAKTU = "waktu";
+    private static final String KEY_NAMA_PASIEN = "Nama pasien";
+    private static final String KEY_NAMA_DOKTER = "Nama dokter";
+    private static final String KEY_SPESIALIS = "Spesialis";
+    private static final String KEY_KELUHAN = "Keluhan";
+    private static final String KEY_TANGGAL = "Tanggal";
+    private static final String KEY_WAKTU = "Waktu";
+    private static final String KEY_STATUS = "Status";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -34,7 +40,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + KEY_ID + "INTEGER PRIMARY KEY," + KEY_NAMA_PASIEN + "TEXT,"
                 + KEY_NAMA_DOKTER + "TEXT," + KEY_SPESIALIS + "TEXT,"
                 + KEY_KELUHAN + "TEXT," + KEY_TANGGAL + "TEXT,"
-                + KEY_WAKTU + "TEXT" +")";
+                + KEY_WAKTU + "TEXT," + KEY_STATUS + "TEXT" +")";
         db.execSQL(CREATE_CONTACS_TABLE);
     }
 
@@ -42,5 +48,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DOKTER);
         onCreate(db);
+    }
+
+    public void addRecord(Dokter dokter){
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
     }
 }

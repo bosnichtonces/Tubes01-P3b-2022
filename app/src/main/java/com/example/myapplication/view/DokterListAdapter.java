@@ -1,61 +1,71 @@
 package com.example.myapplication.view;
 
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.app.Activity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.myapplication.placeholder.PlaceholderContent.PlaceholderItem;
-import com.example.myapplication.databinding.FragmentDokterBinding;
+import com.example.myapplication.R;
+import com.example.myapplication.model.Dokter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
-public class DokterListAdapter extends RecyclerView.Adapter<DokterListAdapter.ViewHolder> {
+public class DokterListAdapter extends BaseAdapter {
 
-    private final List<PlaceholderItem> mValues;
+    private List<Dokter> dokterList;
+    private Activity activity;
 
-    public DokterListAdapter(List<PlaceholderItem> items) {
-        mValues = items;
+    public DokterListAdapter(Activity activity){
+        this.dokterList = new ArrayList<Dokter>();
+        this.activity = activity;
     }
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        return new ViewHolder(FragmentDokterBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
-
-    }
-
-    @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mValues.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public PlaceholderItem mItem;
-
-        public ViewHolder(FragmentDokterBinding binding) {
-            super(binding.getRoot());
-            mIdView = binding.itemNumber;
-            mContentView = binding.content;
+    private class ViewHolder{
+        private TextView tvNamaDokter,tvNamaSpesialis;
+        public ViewHolder(View view){
+            this.tvNamaDokter = view.findViewById(R.id.tv_nama_dokter);
+            this.tvNamaSpesialis = view.findViewById(R.id.tv_nama_spesialis);
         }
+    }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
+    public void addLine(Dokter newDokter){
+        this.dokterList.add(newDokter);
+        this.notifyDataSetChanged();
+    }
+
+    public void updateArray(List<Dokter> dokters){
+        this.dokterList = dokters;
+        this.notifyDataSetChanged();
+    }
+
+    @Override
+    public int getCount() {
+        return this.dokterList.size();
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return dokterList.get(i);
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View convertView = LayoutInflater.from(this.activity).inflate(R.layout.item_dokter_list,viewGroup,false);
+        Dokter currDokter = (Dokter) this.getItem(i);
+        Dokter currSpesialis = (Dokter) this.getItem(i);
+
+        ViewHolder viewHolder = new ViewHolder(convertView);
+        viewHolder.tvNamaDokter.setText(currDokter.getNama_dokter());
+        viewHolder.tvNamaSpesialis.setText(currSpesialis.getSpesialis());
+
+        return convertView;
     }
 }
