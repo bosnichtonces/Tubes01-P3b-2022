@@ -2,12 +2,15 @@ package com.example.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.myapplication.model.Dokter;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -50,10 +53,75 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addRecord(Dokter dokter){
+    public void addRecord(Dokter Dokter){
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
-
+        values.put(KEY_NAMA_DOKTER,Dokter.getNama_dokter());
+        values.put(KEY_NAMA_PASIEN,Dokter.getNama_pasien());
+        values.put(KEY_SPESIALIS,Dokter.getSpesialis());
+        values.put(KEY_KELUHAN,Dokter.getKeluhan());
+        //values.put(KEY_TANGGAL,Dokter.getTanggal());
+        //values.put(KEY_WAKTU,Dokter.getWaktu());
+        values.put(KEY_TANGGAL, String.valueOf(Dokter.getTanggal()));
+        values.put(KEY_WAKTU, String.valueOf(Dokter.getWaktu()));
+        values.put(KEY_STATUS,Dokter.getStatus());
+        db.insert(TABLE_DOKTER,null,values);
+        db.close();
     }
+
+    public Dokter getContact(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_DOKTER, new String[]{KEY_NAMA_DOKTER,
+                        KEY_NAMA_PASIEN,KEY_SPESIALIS,KEY_KELUHAN,KEY_TANGGAL,
+                        KEY_WAKTU,KEY_STATUS},KEY_ID + "=?",
+                new String[]{String.valueOf(id)},null,null,null,null);
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        Dokter contact = new Dokter(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1),cursor.getString(2),cursor.getString(3),
+                cursor.getString(4),Timestamp.valueOf(cursor.getString(5)),
+                Timestamp.valueOf(cursor.getString(6)),cursor.getString(7));
+
+        return contact;
+    }
+
+    // get All Record
+    public List<Dokter> getAllRecord() {
+        List<Dokter> contactList = new ArrayList<Dokter>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_DOKTER;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Dokter Dokter = new Dokter();
+                Dokter.setId(Integer.parseInt(cursor.getString(0)));
+                Dokter.setNama_dokter(cursor.getString(1));
+                Dokter.setNama_pasien(cursor.getString(2));
+                Dokter.setSpesialis(cursor.getString(3));
+                Dokter.setKeluhan(cursor.getString(4));
+                Dokter.setTanggal(Timestamp.valueOf(cursor.getString(5)));
+                Dokter.setWaktu(Timestamp.valueOf(cursor.getString(6)));
+                Dokter.setStatus(cursor.getString(7));
+                contactList.add(Dokter);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return contactList;
+    }
+
+
+    public void deleteRecord(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_DOKTER, KEY_ID + " = " + id, null);
+    }
+
 }

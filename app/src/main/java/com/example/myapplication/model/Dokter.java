@@ -3,7 +3,6 @@ package com.example.myapplication.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Dokter implements Parcelable {
@@ -14,11 +13,11 @@ public class Dokter implements Parcelable {
     String keluhan;
     Timestamp tanggal;
     Timestamp waktu;
-    boolean status = false;
+    String status;
 
     public Dokter(int id, String nama_pasien, String nama_dokter,
                   String spesialis, String keluhan, Timestamp tanggal,
-                  Timestamp waktu, boolean status) {
+                  Timestamp waktu, String status) {
         this.id = id;
         this.nama_pasien = nama_pasien;
         this.nama_dokter = nama_dokter;
@@ -35,6 +34,8 @@ public class Dokter implements Parcelable {
         nama_dokter = in.readString();
         spesialis = in.readString();
         keluhan = in.readString();
+        //tanggal = in.readInt();
+        //waktu = in.readInt();
         tanggal = new Timestamp(in.readLong());
         waktu = new Timestamp(in.readLong());
     }
@@ -108,11 +109,11 @@ public class Dokter implements Parcelable {
         this.waktu = waktu;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
