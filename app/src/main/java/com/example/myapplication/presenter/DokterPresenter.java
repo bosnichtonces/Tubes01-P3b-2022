@@ -3,7 +3,6 @@ package com.example.myapplication.presenter;
 import com.example.myapplication.DBHelper;
 import com.example.myapplication.model.Dokter;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +36,8 @@ public class DokterPresenter {
     }
 
     public void addList(String nama_pasien, String nama_dokter,
-                        String spesialis, String keluhan, Timestamp tanggal,
-                        Timestamp waktu, String status){
+                        String spesialis, String keluhan, String tanggal,
+                        String waktu, String status){
         this.dokters.add(new Dokter(+1,nama_pasien,nama_dokter,spesialis,
                                     keluhan,tanggal,waktu, status));
         this.ui.updateList(this.dokters);

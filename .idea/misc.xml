@@ -6,9 +6,12 @@
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2203125" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2203125" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_buat_pertemuan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_buat_dokter.xml" value="0.1" />
+        <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_buat_pertemuan.xml" value="0.1" />
+        <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_detail_dokter.xml" value="0.25" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_dokter.xml" value="0.20416666666666666" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_dokter_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_edit.xml" value="0.20416666666666666" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_left.xml" value="0.1" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="..\:/Perkuliahan BANGSAT(3)/P3B/Minggu 6/Tubes-01/app/src/main/res/layout/fragment_pertemuan.xml" value="0.20416666666666666" />

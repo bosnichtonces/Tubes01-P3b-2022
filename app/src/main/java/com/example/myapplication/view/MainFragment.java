@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication.DBHelper;
-import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentMainBinding;
 import com.example.myapplication.model.Dokter;
 import com.example.myapplication.presenter.DokterPresenter;

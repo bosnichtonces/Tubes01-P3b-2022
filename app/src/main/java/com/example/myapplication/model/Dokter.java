@@ -11,13 +11,13 @@ public class Dokter implements Parcelable {
     String nama_dokter;
     String spesialis;
     String keluhan;
-    Timestamp tanggal;
-    Timestamp waktu;
+    String tanggal;
+    String waktu;
     String status;
 
     public Dokter(int id, String nama_pasien, String nama_dokter,
-                  String spesialis, String keluhan, Timestamp tanggal,
-                  Timestamp waktu, String status) {
+                  String spesialis, String keluhan, String tanggal,
+                  String waktu, String status) {
         this.id = id;
         this.nama_pasien = nama_pasien;
         this.nama_dokter = nama_dokter;
@@ -34,10 +34,10 @@ public class Dokter implements Parcelable {
         nama_dokter = in.readString();
         spesialis = in.readString();
         keluhan = in.readString();
-        //tanggal = in.readInt();
-        //waktu = in.readInt();
-        tanggal = new Timestamp(in.readLong());
-        waktu = new Timestamp(in.readLong());
+        tanggal = in.readString();
+        waktu = in.readString();
+        status = in.readString();
+
     }
 
     public static final Creator<Dokter> CREATOR = new Creator<Dokter>() {
@@ -93,19 +93,19 @@ public class Dokter implements Parcelable {
         this.keluhan = keluhan;
     }
 
-    public Timestamp getTanggal() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(Timestamp tanggal) {
+    public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
 
-    public Timestamp getWaktu() {
+    public String getWaktu() {
         return waktu;
     }
 
-    public void setWaktu(Timestamp waktu) {
+    public void setWaktu(String waktu) {
         this.waktu = waktu;
     }
 

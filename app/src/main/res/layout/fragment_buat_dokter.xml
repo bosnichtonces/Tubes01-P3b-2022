@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
-            android:text="Buat Pertemuan"
+            android:text="Tambah Doktr"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -28,10 +28,10 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:id="@+id/tv_nama"
+                android:id="@+id/tv_nama_dokter"
                 android:layout_width="55sp"
                 android:layout_height="wrap_content"
-                android:text="Nama " />
+                android:text="Nama Dokter " />
 
             <EditText
                 android:id="@+id/et_new_nama"
@@ -50,15 +50,16 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:id="@+id/tv_dokter"
+                android:id="@+id/tv_nama_spesialis"
                 android:layout_width="55sp"
                 android:layout_height="wrap_content"
-                android:text="Dokter " />
-            <!-- nanti diubah jadi input multiple choise-->
-            <Spinner
-                android:id="@+id/spinner_dokter"
+                android:text="Nama Dokter " />
+
+            <EditText
+                android:id="@+id/et_spesialis"
                 android:layout_width="match_parent"
-                android:layout_height="30sp"/>
+                android:layout_height="30sp"
+                android:layout_marginBottom="10sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/ll3"
@@ -71,70 +72,24 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:id="@+id/tv_keluhan"
+                android:id="@+id/tv_nomor_hp"
                 android:layout_width="55sp"
                 android:layout_height="wrap_content"
-                android:text="Keluhan " />
+                android:text="No hp " />
 
             <EditText
-                android:id="@+id/et_new_keluhan"
+                android:id="@+id/et_nomor_hp"
                 android:layout_width="match_parent"
                 android:layout_height="30sp"
                 android:layout_marginBottom="10sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll4"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginBottom="15sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ll3"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:id="@+id/tv_tanggal"
-                android:layout_width="55sp"
-                android:layout_height="wrap_content"
-                android:text="Tanggal "
-                android:inputType="date"/>
-            <!-- nanti diubah jadi input multiple choise-->
-            <EditText
-                android:id="@+id/et_new_tanggal"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:layout_marginBottom="10sp" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll5"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginBottom="15sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ll4"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:id="@+id/tv_waktu"
-                android:layout_width="55sp"
-                android:layout_height="wrap_content"
-                android:text="Waktu " />
-            <!-- nanti diubah jadi input multiple choise-->
-            <Spinner
-                android:id="@+id/spinner_waktu"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:layout_marginBottom="10sp"
-                android:inputType="time"/>
-        </LinearLayout>
         <Button
             android:id="@+id/btn_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ll5"
+            android:layout_below="@id/ll3"
             android:layout_centerHorizontal="true"
             android:text="Simpan" />
 

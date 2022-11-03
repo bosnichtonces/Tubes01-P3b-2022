@@ -11,6 +11,8 @@ import android.util.Log;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.databinding.FragmentDetailDokterBinding;
+import com.example.myapplication.model.Dokter;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener{
     ActivityMainBinding binding;
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
     DokterFragment dokterFragment;
     MainFragment mainFragment;
     PertemuanFragment pertemuanFragment;
+    DetailDokterFragment detailDokterFragment;
+    EditFragment editFragment;
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -71,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         }else if(page == 4){
             fragmentTransaction.replace(R.id.fragment_container,this.pertemuanFragment)
                     .addToBackStack(null);
+        }else if(page == 5){
+            fragmentTransaction.replace(R.id.fragment_container,this.detailDokterFragment)
+                    .addToBackStack(null);
+        }else if(page == 6){
+            fragmentTransaction.replace(R.id.fragment_container,this.editFragment)
+                    .addToBackStack(null);
         }
         this.fragmentTransaction.commit();
         binding.drawerLayout.closeDrawers();
@@ -81,5 +91,21 @@ public class MainActivity extends AppCompatActivity implements FragmentListener{
         this.moveTaskToBack(true);
         this.finish();
         binding.drawerLayout.closeDrawers();
+    }
+
+    public void passMenu(Dokter dokter) {
+        this.fragmentTransaction = this.fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("dokter",dokter);
+        this.detailDokterFragment.setArguments(bundle);
+        changePage(5);
+
+    }
+
+    public void passEdit(Dokter dokter) {
+        this.fragmentTransaction = this.fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("editDokter",dokter);
+        changePage(6);
     }
 }
